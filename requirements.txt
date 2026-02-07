@@ -1,0 +1,9 @@
+flask
+groq
+python-dotenv
+gunicorn
+requests
+pypdf
+streamlit
+llama-index
+llama-index-llms-groq
