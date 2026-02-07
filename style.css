@@ -1,0 +1,327 @@
+:root {
+    --bg-color: #0d1117;
+    --card-bg: rgba(30, 30, 35, 0.6);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-muted: #8b949e;
+    --accent-color: #58a6ff;
+    --accent-gradient: linear-gradient(135deg, #FF6B6B, #9B5DE5);
+    --font-family: 'Outfit', sans-serif;
+    --gap: 16px;
+    --radius: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Prevent body scroll primarily */
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(88, 166, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(155, 93, 229, 0.05) 0%, transparent 40%);
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--gap);
+    width: 95vw;
+    height: 90vh;
+    max-width: 1400px;
+    grid-template-areas:
+        "profile objective widget"
+        "profile education skills"
+        "projects projects extras";
+}
+
+/* Card General Styling */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    overflow: hidden;
+    /* Hide overflow by default */
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    border-color: rgba(88, 166, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(88, 166, 255, 0.15);
+    transform: translateY(-4px);
+    z-index: 1;
+}
+
+/* Scrollbar for internal overflow if needed */
+.card:hover {
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+/* Typography Defaults */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+p {
+    color: var(--text-muted);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Specific Card Styles --- */
+
+/* Profile */
+.profile-card {
+    grid-area: profile;
+    justify-content: space-between;
+    background: linear-gradient(160deg, rgba(40, 40, 45, 0.8), rgba(20, 20, 25, 0.9));
+}
+
+.profile-header h1 {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #4ade80;
+    margin-top: auto;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #4ade80;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #4ade80;
+}
+
+/* Objective */
+.objective-card {
+    grid-area: objective;
+    justify-content: center;
+}
+
+/* Education */
+.education-card {
+    grid-area: education;
+}
+
+.timeline {
+    list-style: none;
+    padding-left: 10px;
+    border-left: 2px solid var(--card-border);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.year {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    margin-bottom: 4px;
+}
+
+.school {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.degree {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Skills */
+.skills-card {
+    grid-area: skills;
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.skill-tag:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Projects */
+.projects-card {
+    grid-area: projects;
+}
+
+.project-item {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.project-tech {
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    font-family: monospace;
+}
+
+/* Extras */
+.extras-card {
+    grid-area: extras;
+}
+
+.extra-group {
+    margin-bottom: 16px;
+}
+
+.extra-group h3 {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    opacity: 0.9;
+    margin-bottom: 4px;
+}
+
+.extra-group p {
+    font-size: 0.9rem;
+}
+
+/* Widget */
+.widget-card {
+    grid-area: widget;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(155, 93, 229, 0.1));
+}
+
+#time-display {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+#date-display {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    body {
+        height: auto;
+        overflow-y: auto;
+        padding: 20px 0;
+    }
+
+    .dashboard-container {
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "profile"
+            "objective"
+            "widget"
+            "education"
+            "skills"
+            "projects"
+            "extras";
+    }
+}

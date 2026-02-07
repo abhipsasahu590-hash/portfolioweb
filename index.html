@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P. Harika | Data Analyst Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chatbot.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Placeholder for icons, might need a real kit or SVG icons -->
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Profile Card -->
+        <div class="card profile-card">
+            <div class="profile-header">
+                <h1>P. Harika</h1>
+                <p class="subtitle">Aspiring Data Analyst</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="icon">📧</span>
+                    <a href="mailto:harikapadmanabham10@gmail.com">harikapadmanabham10@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">📞</span>
+                    <span>8455836956</span>
+                </div>
+                <div class="contact-item">
+                    <span class="icon">📍</span>
+                    <span>Berhampur, Odisha</span>
+                </div>
+            </div>
+            <div class="status-indicator">
+                <span class="dot"></span> Available for Opportunities
+            </div>
+        </div>
+
+        <!-- Objective Card -->
+        <div class="card objective-card">
+            <h2>Objective</h2>
+            <p>To become a Data Analyst, utilizing my skills in Python, SQL, and data visualization to drive
+                decision-making.</p>
+        </div>
+
+        <!-- Education Card -->
+        <div class="card education-card">
+            <h2>Education</h2>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <div class="year">2023 - 2027</div>
+                    <div class="school">Vignan Institute of Technology & Management</div>
+                    <div class="degree">B.Tech (CSE) - Currently Pursuing</div>
+                </li>
+                <li class="timeline-item">
+                    <div class="year">2023</div>
+                    <div class="school">SBR Women's College</div>
+                    <div class="degree">12th Grade - 55%</div>
+                </li>
+                <li class="timeline-item">
+                    <div class="year">2021</div>
+                    <div class="school">St. Joseph's Convent School</div>
+                    <div class="degree">10th Grade - 85%</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Skills Card -->
+        <div class="card skills-card">
+            <h2>Tech Stack</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">Matplotlib</span>
+                <span class="skill-tag">Seaborn</span>
+                <span class="skill-tag">R (dplyr, ggplot2)</span>
+            </div>
+        </div>
+
+        <!-- Projects Card -->
+        <div class="card projects-card">
+            <h2>Projects & Analysis</h2>
+            <div class="project-item">
+                <h3>Data Analysis & Visualization</h3>
+                <p class="project-tech">Pandas • NumPy • KPIs • Hypothesis Testing</p>
+                <p class="project-desc">
+                    Explored descriptive statistics, correlations, and probability distributions.
+                    Implemented data cleaning and manipulation using SQL joins and window functions.
+                    Focused on understanding KPIs and business processes in marketing and finance.
+                </p>
+            </div>
+        </div>
+
+        <!-- Interests & Activities Card -->
+        <div class="card extras-card">
+            <h2>Interests & Activities</h2>
+            <div class="extras-content">
+                <div class="extra-group">
+                    <h3>Interests</h3>
+                    <p>Dancing, Swimming, Learning, Reading Books</p>
+                </div>
+                <div class="extra-group">
+                    <h3>Activities</h3>
+                    <p>Seminar on Blue Eyes Technology, Cultural Activities</p>
+                </div>
+                <div class="extra-group">
+                    <h3>Languages</h3>
+                    <p>English, Hindi, Odia, Telugu</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Time/Date Card (Functional Widget) -->
+        <div class="card widget-card">
+            <div id="time-display">00:00</div>
+            <div id="date-display">Date</div>
+        </div>
+    </div>
+
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container">
+        <div class="chat-window hidden" id="chat-window">
+            <div class="chat-header">
+                <h3>Chat with Harika's AI</h3>
+                <button class="minimize-btn" id="close-chat-btn"><i class="fas fa-minus"></i></button>
+            </div>
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot">Hi there! I'm Harika's virtual assistant. Ask me anything about her skills,
+                    projects, or experience!</div>
+                <div class="typing-indicator" id="typing-indicator">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button class="chat-send-btn" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="chat-toggle-btn" id="chat-toggle-btn">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+
+</html>

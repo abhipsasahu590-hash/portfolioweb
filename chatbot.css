@@ -1,0 +1,199 @@
+/* Chatbot Container */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Toggle Button */
+.chat-toggle-btn {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chat-toggle-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(88, 166, 255, 0.4);
+}
+
+/* Chat Window */
+.chat-window {
+    width: 350px;
+    height: 500px;
+    background: rgba(20, 20, 25, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform-origin: bottom right;
+    transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28), opacity 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.chat-window.hidden {
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Chat Header */
+.chat-header {
+    padding: 15px 20px;
+    background: linear-gradient(90deg, rgba(88, 166, 255, 0.1), rgba(155, 93, 229, 0.1));
+    border-bottom: 1px solid var(--card-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.minimize-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.minimize-btn:hover {
+    color: var(--accent-color);
+}
+
+/* Chat Messages Area */
+.chat-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom-left-radius: 5px;
+    color: var(--text-main);
+}
+
+.message.user {
+    align-self: flex-end;
+    background: var(--accent-gradient);
+    border-bottom-right-radius: 5px;
+    color: white;
+}
+
+.typing-indicator {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 15px;
+    display: none;
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    margin-right: 3px;
+    animation: typing 1s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Input Area */
+.chat-input-area {
+    padding: 15px;
+    border-top: 1px solid var(--card-border);
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input-area input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: var(--text-main);
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.chat-input-area input:focus {
+    border-color: var(--accent-color);
+}
+
+.chat-send-btn {
+    background: var(--accent-color);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.chat-send-btn:hover {
+    transform: scale(1.1);
+}
